@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const quoteTitle = document.querySelector("#quote-title");
   quoteTitle.addEventListener("click", randomQuote);
 
-  // Part 9. Select all .blog-post class elements. Iterate through the list of .blog-post class elements and apply two event handlers to each node. The first event handler should be listening for mouseoutevents while the second handler should be listening for mouseenterevents.
+  // Part 9. Select all .blog-post class elements. Iterate through the list of .blog-post class elements and apply two event handlers to each node. The first event handler should be listening for mouseout events while the second handler should be listening for mouseenter events.
   // The mouseout handler should toggle the class .purple
   // The mouseenter handler should toggle the class .red
 
@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   for (let blogs of allBlogPosts) {
     blogs.addEventListener("mouseout", function e() {
       blogs.classList.toggle("purple"); //this classList property 'toggle' where if class is there it's gonna remove it, and if it's not there it's gonna add it
+    });
+    blogs.addEventListener("mouseenter", function e() {
+      blogs.classList.toggle("red");
     });
   }
 });
