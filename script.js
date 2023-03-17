@@ -64,15 +64,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const main = document.querySelector(".main");
   const newBlogPost = document.createElement("div");
   newBlogPost.className = "blog-post purple";
-  newBlogPost.innerHTML = `<h1> ${newListItem.textContent}</h1> <p>I jumped my car over a broken bridge with my family!</p>`; //recall textContenet property sets-or-retrieves content
+  newBlogPost.innerHTML = `<h1> ${newListItem.textContent}</h1> <p>I jumped my car over a broken bridge with my family!</p>`; //recall textContenet property sets-or-retrieves content, also used h1 instead of h2 because it didn't match rest blogpost headers
   main.appendChild(newBlogPost);
   // console.log(newBlogPost); //checking
 
   // Part 8. Query select the #quote-title ID element and add a click event handler. That event handler should use the function randomQuote whenever #quote-title is clicked.
+  const quoteTitle = document.querySelector("#quote-title");
+  quoteTitle.addEventListener("click", randomQuote);
 
-  
+  // Part 9. Select all .blog-post class elements. Iterate through the list of .blog-post class elements and apply two event handlers to each node. The first event handler should be listening for mouseoutevents while the second handler should be listening for mouseenterevents.
+  // The mouseout handler should toggle the class .purple
+  // The mouseenter handler should toggle the class .red
 
-  // Part 9. Select all .blog-postclass elements. Iterate through the list of .blog-postclass elements and apply two event handlers to each node. The first event handler should be listening for mouseoutevents while the second handler should be listening for mouseenterevents.
-  // The mouseouthandler should toggle the class .purple
-  // The mouseenterhandler should toggle the class .red
+  const allBlogPosts = document.querySelectorAll(".blog-post"); //recall to define multiple classes, the class names are separated w/ a space, hence class="blog-post purple" are two class names
+  for (let blogs of allBlogPosts) {
+    blogs.addEventListener("mouseout", function e() {
+      blogs.classList.toggle("purple"); //this classList property 'toggle' where if class is there it's gonna remove it, and if it's not there it's gonna add it
+    });
+  }
 });
